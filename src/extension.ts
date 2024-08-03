@@ -1,9 +1,6 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+
 export function activate(context: vscode.ExtensionContext) {
 
 
@@ -38,9 +35,6 @@ export function activate(context: vscode.ExtensionContext) {
 			const doWhileComplete = new vscode.CompletionItem('dowhile'); // Do-While loop shortcut
 			doWhileComplete.insertText = new vscode.SnippetString('do{\n\t$0\n}\nwhile($1);');
 
-			
-
-			// return all completion items as array
 			return [
 				printCompletion,
 				printlnCompletion,
@@ -57,14 +51,9 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(provider1);
 }
 
-
 module.exports = {
     activate,
     deactivate
 };
 
-
-
-
-// This method is called when your extension is deactivated
 export function deactivate() {}
