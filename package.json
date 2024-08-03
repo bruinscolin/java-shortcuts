@@ -1,6 +1,7 @@
 {
   "name": "java-shortcuts",
   "displayName": "Java Shortcuts",
+  "publisher": "ColinBruins",
   "description": "Use short phrases that expand into longer, predefined code templates for Java",
   "version": "0.0.1",
   "engines": {
