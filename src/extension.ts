@@ -54,37 +54,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 
-
-	const provider2 = vscode.languages.registerCompletionItemProvider(
-		'plaintext',
-		{
-			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
-
-				// get all text until the `position` and check if it reads `console.`
-				// and if so then complete if `log`, `warn`, and `error`
-				const linePrefix = document.lineAt(position).text.slice(0, position.character);
-				if (linePrefix.endsWith('glorb') || linePrefix.endsWith('blorb')) {
-				
-				
-				const test = new vscode.CompletionItem('glorb'); // Do-While loop shortcut
-				test.insertText = new vscode.SnippetString('asdfasdfasdf');
-				// return [
-				// 	new vscode.CompletionItem('out.print', vscode.CompletionItemKind.Method),
-				// 	new vscode.CompletionItem('test', vscode.CompletionItemKind.Method),
-				// 	new vscode.CompletionItem('colin', vscode.CompletionItemKind.Method),
-				// ];
-
-				const t2 = new vscode.CompletionItem('blorb'); // Do-While loop shortcut
-				t2.insertText = new vscode.SnippetString('asdfasdfasdf');
-
-				return [test, t2];
-
-				}
-			}
-		},  // triggered whenever a '.' is being typed
-	);
-
-	context.subscriptions.push(provider1, provider2);
+	context.subscriptions.push(provider1);
 }
 
 
