@@ -10,7 +10,8 @@ export function activate(context: vscode.ExtensionContext) {
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
 
 			const linePrefix = document.lineAt(position).text.slice(0, position.character);
-			if (linePrefix.endsWith('sout') || linePrefix.endsWith('for') || linePrefix.endsWith('while') || linePrefix.endsWith('doWhile') || linePrefix.endsWith('soutln')){
+			if (linePrefix.endsWith('sout') || linePrefix.endsWith('for') || linePrefix.endsWith('while') || linePrefix.endsWith('doWhile') || linePrefix.endsWith('soutln') || linePrefix.endsWith('min')
+				|| linePrefix.endsWith('max') || linePrefix.endsWith('sqrt') || linePrefix.endsWith('abs') || linePrefix.endsWith('ran')){
 
 
 			const printCompletion = new vscode.CompletionItem('sout'); // shortcut for 'System.out.print'
@@ -35,6 +36,25 @@ export function activate(context: vscode.ExtensionContext) {
 			const doWhileComplete = new vscode.CompletionItem('dowhile'); // Do-While loop shortcut
 			doWhileComplete.insertText = new vscode.SnippetString('do{\n\t$0\n}\nwhile($1);');
 
+			// Math Shortcuts
+
+			const minComplete = new vscode.CompletionItem('min');
+			minComplete.insertText = new vscode.SnippetString('Math.min($1,$2)$0');
+
+			const maxComplete = new vscode.CompletionItem('max');
+			maxComplete.insertText = new vscode.SnippetString('Math.max($1,$2)$0');
+
+			const sqrtComplete = new vscode.CompletionItem('sqrt');
+			sqrtComplete.insertText = new vscode.SnippetString('Math.sqrt($1)$0');
+
+			const absComplete = new vscode.CompletionItem('abs');
+			absComplete.insertText = new vscode.SnippetString('Math.abs($1)$0');
+
+			const randomComplete = new vscode.CompletionItem('ran');
+			randomComplete.insertText = new vscode.SnippetString('Math.random($1)$0');
+
+
+
 			return [
 				printCompletion,
 				printlnCompletion,
@@ -42,6 +62,11 @@ export function activate(context: vscode.ExtensionContext) {
 				forEachComplete,
 				whileComplete,
 				doWhileComplete,
+				minComplete,
+				maxComplete,
+				sqrtComplete,
+				absComplete,
+				randomComplete,
 			];}
 
 		}
