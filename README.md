@@ -21,7 +21,7 @@ Type "dowhile" to acess shortcuts for do-while loops
 ### Math.min()
 Type "min" to access the shortcut for Math.min() method
 ### Math.max()
-Type "max" to access the shortcut for Math.mmaxin() method
+Type "max" to access the shortcut for Math.max() method
 
 ### Math.sqrt()
 Type "sqrt" to access the shortcut for Math.sqrt() method
