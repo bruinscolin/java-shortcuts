@@ -3,7 +3,7 @@
   "displayName": "Java Shortcuts",
   "publisher": "ColinBruins",
   "description": "Use short phrases that expand into longer, predefined code templates for Java",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "engines": {
     "vscode": "^1.91.1"
   },
