@@ -1,34 +1,27 @@
-# java-shortcuts README
+# Java Shortcuts README 🚀
 
 VSCode extension that adds autocomplete shortcuts for popular Java commands.
 
-## Supported Commands
+## 🔧 Supported Commands
 
 ### System.out.print/println
-Type "sout" or "soutln" for respective shortcuts
+- Type `sout` or `soutln` for respective shortcuts
 
-### for loops
-Type "for" to access shortcuts to both iterative and for-each loops
+### Loops
+- **For loops**: Type `for` to access shortcuts to both iterative and for-each loops
+- **While loops**: Type `while` to access shortcuts for while loops
+- **Do-while loops**: Type `dowhile` to access shortcuts for do-while loops
 
-### while loops
-Type "while" to access shortcuts for while loops
+## 🧮 Math Shortcuts
 
-### do-while loops
-Type "dowhile" to acess shortcuts for do-while loops
+| Shortcut | Method |
+|----------|--------|
+| `min`    | `Math.min()` |
+| `max`    | `Math.max()` |
+| `sqrt`   | `Math.sqrt()` |
+| `abs`    | `Math.abs()` |
+| `ran`    | `Math.random()` |
 
-## Math Shortcuts
+## 💡 Pro Tip
 
-### Math.min()
-Type "min" to access the shortcut for Math.min() method
-### Math.max()
-Type "max" to access the shortcut for Math.max() method
-
-### Math.sqrt()
-Type "sqrt" to access the shortcut for Math.sqrt() method
-
-### Math.abs()
-Type "abs" to access the shortcut for Math.abs() method
-
-### Math.random()
-Type "ran" to access the shortcut for Math.random() method
-### Pressing *tab* in each of these shortcuts navigate the cursor to the next part of the shortcut
+Pressing `Tab` in each of these shortcuts navigates the cursor to the next part of the shortcut.
