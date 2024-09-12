@@ -3,7 +3,7 @@
   "displayName": "Java Shortcuts",
   "publisher": "ColinBruins",
   "description": "Use short phrases that expand into longer, predefined code templates for Java",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "engines": {
     "vscode": "^1.91.1"
   },
@@ -19,6 +19,18 @@
       {
         "command": "java-shortcuts.ShortCut",
         "title": "Short"
+      },
+      {
+        "command": "java-shortcuts.noCommas",
+        "title": "Removes commas for shortcuts with multiple parameters."
+      }
+    ],
+    "keybindings": [
+      {
+      "command": "java-shortcuts.noCommas",
+      "key": "ctrl+alt+j",
+      "mac": "cmd+alt+j",
+      "when": "editorTextFocus"
       }
     ]
   },

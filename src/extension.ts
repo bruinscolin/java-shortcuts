@@ -1,7 +1,16 @@
 import * as vscode from 'vscode';
 
+let noCommas: boolean = false;
+
 
 export function activate(context: vscode.ExtensionContext) {
+
+	const noCommasDisp = vscode.commands.registerCommand('java-shortcuts.noCommas', () => {
+		noCommas = !noCommas;
+
+	})
+
+	context.subscriptions.push(noCommasDisp);
 
 
 
@@ -10,8 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
 
 			const linePrefix = document.lineAt(position).text.slice(0, position.character);
-			if (linePrefix.endsWith('sout') || linePrefix.endsWith('for') || linePrefix.endsWith('while') || linePrefix.endsWith('doWhile') || linePrefix.endsWith('soutln') || linePrefix.endsWith('min')
-				|| linePrefix.endsWith('max') || linePrefix.endsWith('sqrt') || linePrefix.endsWith('abs') || linePrefix.endsWith('ran')){
+			if ((linePrefix.endsWith('sout') || linePrefix.endsWith('for') || linePrefix.endsWith('while') || linePrefix.endsWith('doWhile') || linePrefix.endsWith('soutln') ||  linePrefix.endsWith('sqrt') || linePrefix.endsWith('abs') || linePrefix.endsWith('ran'))){
 
 
 			const printCompletion = new vscode.CompletionItem('sout'); // shortcut for 'System.out.print'
@@ -38,12 +46,6 @@ export function activate(context: vscode.ExtensionContext) {
 
 			// Math Shortcuts
 
-			const minComplete = new vscode.CompletionItem('min');
-			minComplete.insertText = new vscode.SnippetString('Math.min($1,$2)$0');
-
-			const maxComplete = new vscode.CompletionItem('max');
-			maxComplete.insertText = new vscode.SnippetString('Math.max($1,$2)$0');
-
 			const sqrtComplete = new vscode.CompletionItem('sqrt');
 			sqrtComplete.insertText = new vscode.SnippetString('Math.sqrt($1)$0');
 
@@ -54,7 +56,6 @@ export function activate(context: vscode.ExtensionContext) {
 			randomComplete.insertText = new vscode.SnippetString('Math.random($1)$0');
 
 
-
 			return [
 				printCompletion,
 				printlnCompletion,
@@ -62,12 +63,39 @@ export function activate(context: vscode.ExtensionContext) {
 				forEachComplete,
 				whileComplete,
 				doWhileComplete,
-				minComplete,
-				maxComplete,
 				sqrtComplete,
 				absComplete,
 				randomComplete,
 			];}
+
+			// Multiple Argument Shortcuts, noComma command chooses
+			if ((linePrefix.endsWith('min') || linePrefix.endsWith('max')) && noCommas){
+				const minComplete = new vscode.CompletionItem('min');
+				minComplete.insertText = new vscode.SnippetString('Math.min($1)$0');
+	
+				const maxComplete = new vscode.CompletionItem('max');
+				maxComplete.insertText = new vscode.SnippetString('Math.max($1)$0');
+
+
+				return [
+					minComplete,
+					maxComplete,
+				]
+
+			}
+
+			if ((linePrefix.endsWith('min') || linePrefix.endsWith('max')) && !noCommas){
+				const minComplete = new vscode.CompletionItem('min');
+				minComplete.insertText = new vscode.SnippetString('Math.min($1,$2)$0');
+
+				const maxComplete = new vscode.CompletionItem('max');
+				maxComplete.insertText = new vscode.SnippetString('Math.max($1,$2)$0');
+
+				return [
+					minComplete,
+					maxComplete
+				]
+			}
 
 		}
 	});
